@@ -7,6 +7,7 @@ from merge import merge
 # Começa a contar a performance geral
 runtime = perf_counter()
 
+
 # Define o tamanho do array inicial e em quantos arrays ele deve ser dividido
 SIZE = int(input("INSERT ARRAY TOTAL SIZE\n=> "))
 DIVISIONS = int(input("INSERT TOTAL ARRAYS\n=> "))
@@ -28,6 +29,16 @@ splitted_arrays = [bubbleSort(splitted_arrays[i]) for i in range(len(splitted_ar
 elapsed = round(perf_counter() - sorting, 4)
 
 print(f"[-] {'SORTING:':<20} {elapsed:>26} sec [-]")
+# fim do sorting
+
+# # inicio do merging
+# merging = perf_counter()
+
+# merged = []
+
+# elapsed = round(perf_counter() - merging, 4)
+
+# print(f"[-] {'MERGING:':<20} {elapsed:>26} sec [-]")
 
 # # Finaliza a contagem de performance geral
 elapsed = round(perf_counter() - runtime, 4)
