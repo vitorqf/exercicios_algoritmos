@@ -1,11 +1,14 @@
 from random import randint
+from time import perf_counter
 
 def search(array):
-    LAST = len(array) - 1
     greatest = 0
 
     for i in range(len(array)):
+
         if (len(array[i]) > 1):
+            LAST = len(array[i]) - 1
+
             if array[i][LAST] >= greatest:
                 greatest = array[i][LAST]
 
@@ -30,21 +33,38 @@ def split(array, DIVISIONS):
     return split_array
 
 def randomize(SIZE):
-    random_array = [randint(1, 1000) for _ in range(SIZE)]
+    random_array = [randint(1, 1000000) for _ in range(SIZE)]
     return random_array
 
-SIZE = int(input('ARRAY SIZE\n==> '))
-DIVISIONS = int(input('DIVIDED BY\n==> '))
+starting = perf_counter()
+
+try: 
+    SIZE = int(input('[*] ARRAY SIZE ==> '))
+    
+except:
+    SIZE = int(input('[!] INVALID VALUE. PLEASE, INSERT AGAIN ==> '))
+    
+
+try:
+    DIVISIONS = int(input('[*] DIVIDED BY ==> '))
+
+    while DIVISIONS > SIZE:
+        DIVISIONS = int(input("[!] DIVISION CANT BE GREATER THAN ARRAY SIZE. INSERT AGAIN ==> "))
+
+except:
+    DIVISIONS = int(input('[!] INVALID VALUE. PLEASE, INSERT AGAIN ==> '))
+
+
 
 random_array = randomize(SIZE)
+
 array = split(random_array, DIVISIONS)
 array = [bubbleSort(sub_array) for sub_array in array]
 
-for sub_array in array:
-    print(f'{sub_array}')
-
 greatest = search(array)
 
-print(greatest)
+print(f'\n[-] GREATEST: {greatest}')
+
+print(f'[-] ELAPSED TIME: {(perf_counter() - starting):.4f} s')
 
 
