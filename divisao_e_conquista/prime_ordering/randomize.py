@@ -7,7 +7,7 @@ def randomize(SIZE):
     starting = perf_counter()
     
     # Cria um array de SIZE posições com números aleatórios de 1 a 10
-    array = [randint(1, 10) for _ in range(SIZE)]
+    array = [randint(1, 1000) for _ in range(SIZE)]
 
     # Finaliza a contagem de performance da função randomize
     elapsed = round(perf_counter() - starting, 4)
