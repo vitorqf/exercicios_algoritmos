@@ -46,18 +46,29 @@ genauso wenig wie mehrere Leerzeilen.
 
 from handler import string_handle
 
-print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
+# print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
 
-contents = []
+# contents = []
 
-while True:
-    try:
-        line = input()
-    except EOFError:
-        break
-    contents.append(line)
+# while True:
+#     try:
+#         line = input()
+#     except EOFError:
+#         break
+#     contents.append(line)
 
-contents = '\n'.join(contents)
+# contents = '\n'.join(contents)
+
+test_str = ("Hallo, dies ist eine\n"
+	"ziemlich lange Zeile, die in Html\n"
+	"aber nicht umgebrochen wird.\n"
+	"<br>\n"
+	"Zwei <br> <br> produzieren zwei Newlines.\n"
+	"Es gibt auch noch das tag <hr> was einen Trenner darstellt.\n"
+	"Zwei <hr> <hr> produzieren zwei Horizontal Rulers.\n"
+	"Achtung mehrere Leerzeichen irritieren\n"
+	"Html genauso wenig wie\n"
+	"mehrere Leerzeilen.\n")
 
 print('\n\n\nResult:\n\n')
-print(string_handle(contents))
+print(string_handle(test_str))

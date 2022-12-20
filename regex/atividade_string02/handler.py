@@ -12,14 +12,16 @@ import re
 """
 
 def string_handle(base_string):
-    remove_newline = re.sub('\n', ' ', base_string)
-
+    remove_newline = re.sub('\\n', ' ', base_string)
+    
     replace_br_tag = re.sub('([\\s]?<br>[\\s]?)', '\\n', remove_newline)
 
-    replace_hr_tag = re.sub('\\s?<hr>\\s?', '\n--------------------------------------------------------------------------------\n', replace_br_tag)
+    # replace_hr_tag = re.sub('\\s?<hr>\\s?', '\\n---------------------------------------------------------------------------------', replace_br_tag)
+    
+    # print_width_80 = re.sub("(?![^\\n]{0,80}$)([^\\n]{0,80})\\s'", "'\\1\\r", replace_hr_tag)
 
-    print_width_80 = re.sub('(?![^\n]{1,80}$)([^\n]{1,80})\\s', '\\1\\r', replace_hr_tag)
 
-    final_string = print_width_80
+
+    final_string = replace_br_tag
 
     return final_string
