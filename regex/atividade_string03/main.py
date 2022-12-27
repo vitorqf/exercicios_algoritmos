@@ -12,16 +12,15 @@ Saída:
 
 import re
 
-def handler(string):
-    breach_output = {}
+def get_cpf_and_code_from_breach(data_breach: str) -> str:
 
-    get_digits_from_cpf = re.findall('[\\d]', string)
+    clear_data_breach_lines = [re.findall('[\d+\.+]', line) for line in data_breach]
 
-    join_get_digits_from_cpf = ''.join(get_digits_from_cpf[0:10])
+    cpf = ''.join(clear_data_breach_lines[0][0:11])
 
-    breach_output['cpf'] = join_get_digits_from_cpf
+    remaining_first_line = clear_data_breach_lines[0][11::]
 
-    return breach_output
+    return clear_data_breach_lines
 
 contents = []
 
@@ -32,8 +31,6 @@ while True:
         break
     contents.append(line)
 
-contents = ''.join(contents)
-
-print(handler(contents))
+print(get_cpf_and_code_from_breach(contents))
 
 
