@@ -44,20 +44,10 @@ genauso wenig wie mehrere Leerzeilen.
 
 """
 
+import os
 from handler import string_handle
 
 # print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
-
-# contents = []
-
-# while True:
-#     try:
-#         line = input()
-#     except EOFError:
-#         break
-#     contents.append(line)
-
-# contents = '\n'.join(contents)
 
 test_str = ("Hallo, dies ist eine\n"
 	"ziemlich lange Zeile, die in Html\n"
@@ -68,7 +58,18 @@ test_str = ("Hallo, dies ist eine\n"
 	"Zwei <hr> <hr> produzieren zwei Horizontal Rulers.\n"
 	"Achtung mehrere Leerzeichen irritieren\n"
 	"Html genauso wenig wie\n"
-	"mehrere Leerzeilen.\n")
+	"mehrere Leerzeilen.")
 
-print('\n\n\nResult:\n\n')
+# contents = []
+
+# while True:
+#     try:
+#         line = input()
+#     except EOFError:
+#         break
+#     contents.append(line)
+
+
+os.system('clear')
+
 print(string_handle(test_str))

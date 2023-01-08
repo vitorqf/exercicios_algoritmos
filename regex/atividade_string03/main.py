@@ -1,28 +1,8 @@
-"""
-
-1 - Remover caracteres não numericos
-2 - Extrair os 11 primeiros dígitos
-3 - Somar o restante
-
-Saída:
-11122233344
-
-
-"""
-
-import re
-
-def get_cpf_and_code_from_breach(data_breach: str) -> str:
-
-    clear_data_breach_lines = [re.findall('[\d+\.+]', line) for line in data_breach]
-
-    cpf = ''.join(clear_data_breach_lines[0][0:11])
-
-    remaining_first_line = clear_data_breach_lines[0][11::]
-
-    return clear_data_breach_lines
+from get_info_from_breach import get_info_from_breach
 
 contents = []
+
+print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
 
 while True:
     try:
@@ -31,6 +11,6 @@ while True:
         break
     contents.append(line)
 
-print(get_cpf_and_code_from_breach(contents))
+print(get_info_from_breach(contents))
 
 
